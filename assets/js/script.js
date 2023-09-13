@@ -1,4 +1,4 @@
-const myLibrary = ["Man Search For Meaning", "Rich Dad Poor Dad", "Atomic Habits", "Think and Grow Rich", "The Facebook Effect", "The Lean Startup", "Zero To One", "Obstacle Is The Way", "Spud: The Crazy Normal", "No Time For Goodbyes"];
+const myLibrary = [];
 
 function Book(id, title, author, blurb, pages, read) {
   this.id = id;
@@ -9,8 +9,21 @@ function Book(id, title, author, blurb, pages, read) {
   this.read = read;
 }
 
+function createBookInstance(title, author, blurb, pages, read) {
+  const id = myLibrary.length + 1;
+  return new Book(id, title, author, blurb, pages, read);
+}
+
 function addBookToLibrary(book) {
-  myLibrary.push(book);
+  const bookInstance = createBookInstance(
+    book.title,
+    book.author,
+    book.blurb,
+    book.pages,
+    book.read
+  );
+
+  myLibrary.push(bookInstance);
 }
 
 function displayBooks() {
@@ -24,8 +37,6 @@ function displayBooks() {
     booksContainer.appendChild(card);
   }
 }
-
-displayBooks();
 
 const addNewBookButton = document.querySelector(".new-book");
 addNewBookButton.addEventListener("click", () => {
