@@ -44,3 +44,24 @@ addNewBookButton.addEventListener("click", () => {
 
   modal.showModal();
 });
+
+const form = document.querySelector("form");
+
+function getFormData(form) {
+  const obj = {};
+
+  for (const item of form) {
+    obj[item.name] = item.value;
+  }
+
+  return obj;
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  console.log("formData", getFormData(e.target));
+
+  // const title = document.querySelector("#title");
+  // addBookToLibrary(title.value);
+});
