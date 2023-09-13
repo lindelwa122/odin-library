@@ -19,3 +19,12 @@ function displayBooks() {
     booksContainer.appendChild(card);
   }
 }
+
+displayBooks();
+
+const addNewBookButton = document.querySelector(".new-book");
+addNewBookButton.addEventListener("click", () => {
+  const modal = document.querySelector("dialog");
+
+  modal.showModal();
+});
