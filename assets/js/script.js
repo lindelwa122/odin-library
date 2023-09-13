@@ -32,7 +32,7 @@ function displayBooks() {
   for (const book of myLibrary) {
     const card = document.createElement("div");
     card.className = "card";
-    card.textContent = book;
+    card.textContent = book.title;
 
     booksContainer.appendChild(card);
   }
@@ -59,9 +59,6 @@ function getFormData(form) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  console.log("formData", getFormData(e.target));
-
-  // const title = document.querySelector("#title");
-  // addBookToLibrary(title.value);
+  const formData = getFormData(e.target);
+  addBookToLibrary(formData);
 });
