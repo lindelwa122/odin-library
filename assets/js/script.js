@@ -32,8 +32,13 @@ function createCard(book) {
 
   const iconContainer = document.createElement("div");
   const icon = document.createElement("i");
-  icon.classList = "bi bi-x-lg remove-card";
+  icon.classList = "bi bi-x-lg";
   iconContainer.appendChild(icon);
+
+  icon.onclick = () => {
+    deleteBook(book.id);
+    displayBooks();
+  }
 
   const title = document.createElement("h2");
   title.textContent = book.title;
@@ -104,3 +109,8 @@ const xIcon = document.querySelector(".bi-x-lg");
 xIcon.addEventListener("click", () => {
   modal.close();
 });
+
+function deleteBook(id) {
+  const index = myLibrary.findIndex((book) => book.id === id);
+  myLibrary.splice(index, 1);
+}
