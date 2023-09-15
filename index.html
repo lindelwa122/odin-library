@@ -11,23 +11,23 @@
     <dialog>
         <form action="">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title">
+            <input type="text" id="title" name="title" required placeholder="e.g ">
 
             <label for="author">Author</label>
-            <input type="text" id="author" name="author">
+            <input type="text" id="author" name="author" required placeholder="e.g Robert Kiyosaki">
 
             <label for="blurb">Book blurb</label>
-            <textarea name="blurb" id="blurb" cols="30" rows="10">Add a short description of your book</textarea>
+            <textarea name="blurb" id="blurb" cols="30" rows="10" required minlength="10" maxlength="200">Add a short description of your book</textarea>
 
             <label for="pages">Pages</label>
-            <input type="number" name="pages" id="pages">
+            <input type="number" name="pages" id="pages" required placeholder="e.g 250">
 
             <label for="read">Have you read the book</label>
-            <select name="read" id="read">
+            <select name="read" id="read" required>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
-            
+
             <input type="submit" value="Submit">
         </form>
     </dialog>
