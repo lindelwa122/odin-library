@@ -26,14 +26,35 @@ function addBookToLibrary(book) {
   myLibrary.push(bookInstance);
 }
 
+function createCard(book) {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const title = document.createElement("h2");
+  title.textContent = book.title;
+  title.className = "title";
+
+  const author = document.createElement("h3");
+  author.textContent = book.author;
+  author.className = "author";
+
+  const description = document.createElement("p");
+  description.textContent = book.blurb;
+  author.className = "blurb";
+
+  const read = document.createElement("p");
+  read.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
+  read.className = "read";
+
+  card.append(title, author, description, read);
+  return card;
+}
+
 function displayBooks() {
   const booksContainer = document.querySelector(".books-container");
 
   for (const book of myLibrary) {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.textContent = book.title;
-
+    const card = createCard(book);
     booksContainer.appendChild(card);
   }
 }
