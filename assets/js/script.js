@@ -53,6 +53,11 @@ function createCard(book) {
 function displayBooks() {
   const booksContainer = document.querySelector(".books-container");
 
+  const cards = booksContainer.querySelectorAll(".card");
+  for (const card of cards) {
+    card.remove();
+  }
+
   for (const book of myLibrary) {
     const card = createCard(book);
     booksContainer.appendChild(card);
@@ -82,9 +87,15 @@ form.addEventListener("submit", (e) => {
   modal.close();
   const formData = getFormData(e.target);
   addBookToLibrary(formData);
+  displayBooks();
 });
 
 const formFields = document.querySelectorAll("form > input, select, textarea");
 formFields.forEach((field) => {
   field.addEventListener("blur", () => field.classList.add("focus"));
+});
+
+const xIcon = document.querySelector(".bi-x-lg");
+xIcon.addEventListener("click", () => {
+  modal.close();
 });
