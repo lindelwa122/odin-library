@@ -9,6 +9,10 @@ function Book(id, title, author, blurb, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+} 
+
 function generateId() {
   const alphanumeric = '0123456789abcdef'.split('');
   let id;
@@ -74,6 +78,11 @@ function createCard(book) {
   const read = document.createElement("p");
   read.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
   read.className = "read";
+
+  read.onclick = () => {
+    book.toggleRead();
+    displayBooks();
+  }
 
   card.append(iconContainer, title, author, description, read);
   return card;
