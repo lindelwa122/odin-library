@@ -30,6 +30,11 @@ function createCard(book) {
   const card = document.createElement("div");
   card.className = "card";
 
+  const iconContainer = document.createElement("div");
+  const icon = document.createElement("i");
+  icon.classList = "bi bi-x-lg remove-card";
+  iconContainer.appendChild(icon);
+
   const title = document.createElement("h2");
   title.textContent = book.title;
   title.className = "title";
@@ -46,7 +51,7 @@ function createCard(book) {
   read.textContent = `Read: ${book.read ? 'Yes' : 'No'}`;
   read.className = "read";
 
-  card.append(title, author, description, read);
+  card.append(iconContainer, title, author, description, read);
   return card;
 }
 
