@@ -83,3 +83,8 @@ form.addEventListener("submit", (e) => {
   const formData = getFormData(e.target);
   addBookToLibrary(formData);
 });
+
+const formFields = document.querySelectorAll("form > input, select, textarea");
+formFields.forEach((field) => {
+  field.addEventListener("blur", () => field.classList.add("focus"));
+});
