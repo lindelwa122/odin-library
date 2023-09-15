@@ -90,3 +90,10 @@ dialog {
   box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.3);
   width: clamp(250px, 35vw, 450px);
 }
+
+.read:hover {
+  color: rgb(138, 43, 226);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
