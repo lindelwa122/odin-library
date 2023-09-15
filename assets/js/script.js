@@ -9,8 +9,27 @@ function Book(id, title, author, blurb, pages, read) {
   this.read = read;
 }
 
+function generateId() {
+  const alphanumeric = '0123456789abcdef'.split('');
+  let id;
+  while (true) {
+    id = '';
+
+    const length = Math.ceil(Math.random() * 20);
+
+    for (let i = 0; i <= length; i++) {
+      const n = Math.floor(Math.random() * alphanumeric.length);
+      id += alphanumeric[n];
+    }
+
+    const doesIdExist = myLibrary.some((book) => book.id === id);
+
+    if (!doesIdExist) return id;
+  }
+}
+
 function createBookInstance(title, author, blurb, pages, read) {
-  const id = myLibrary.length + 1;
+  const id = generateId();
   return new Book(id, title, author, blurb, pages, read);
 }
 
