@@ -60,9 +60,8 @@ function displayBooks() {
 }
 
 const addNewBookButton = document.querySelector(".new-book");
+const modal = document.querySelector("dialog");
 addNewBookButton.addEventListener("click", () => {
-  const modal = document.querySelector("dialog");
-
   modal.showModal();
 });
 
@@ -80,6 +79,7 @@ function getFormData(form) {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  modal.close();
   const formData = getFormData(e.target);
   addBookToLibrary(formData);
 });
