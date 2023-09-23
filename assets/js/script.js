@@ -1,17 +1,20 @@
 const myLibrary = [];
 
-function Book(id, title, author, blurb, pages, read) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.blurb = blurb;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(id, title, author, blurb, pages, read) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.blurb = blurb;
+    this.pages = pages;
+    this.read = read;
+  }
+  
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
 
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-} 
 
 function generateId() {
   const alphanumeric = '0123456789abcdef'.split('');
