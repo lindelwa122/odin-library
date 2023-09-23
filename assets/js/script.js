@@ -43,7 +43,7 @@ function addBookToLibrary(book) {
     book.author,
     book.blurb,
     book.pages,
-    book.read
+    book.read === "true" ? true : false
   );
 
   myLibrary.push(bookInstance);
